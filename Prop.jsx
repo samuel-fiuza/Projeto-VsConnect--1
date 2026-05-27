@@ -89,4 +89,38 @@ function Nome() {
     )
 }
 //formulario
-h
+ function FormularioLogin() {
+    const [email, setEmail] = useState("");
+    const [senha, setSenha] = useState("");
+
+    function enviarFormulario(event) {
+        event.preventDefault();
+        console.log('Email', email)
+        console.log('Senha', senha)
+    }
+    return (
+        <form onSubmit={enviarFormulario}>
+            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Digite seu email"/>
+
+            <input type="password" value={senha} onChange={(e) => setSenha(e.target.value)}
+            placeholder="digite a senha">
+
+            </input>
+
+            <button type="submit">
+
+            </button>
+        </form>
+    )
+ }
+
+ //Estado com arrrays
+const [listaItens, setListaItens] = useState([])
+
+function adicionarItem(novoItem) {
+    setListaItens([...listaItens, novoItem])
+}
+
+function removerItens(itemParaRemover) {
+    setListaItens(listaItens.filter(item => item != itemParaRemover)) 
+}
